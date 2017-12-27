@@ -5,7 +5,7 @@ const initialState = {
   error: null
 }
 
-const reducer = (state={initialState}, action) =>{
+const reducer = (state=initialState, action) =>{
   switch(action.type) {
     case "FETCH_TODO_START":
     return {...state, fetching:true}
@@ -13,10 +13,10 @@ const reducer = (state={initialState}, action) =>{
     case "FETCH_TODO_ERROR":
     return {...state, fetching:false, error: action.payload}
     break;
-    case "RECIEVE_TODO":
-    console.log(action.payload.data);
+    case "RECIEVED_TODO":
+    console.log(action.payload);
     return {...state, fetching:false,
-    todo: action.payload.data,
+    todo: action.payload,
   }
     break;
     default:
